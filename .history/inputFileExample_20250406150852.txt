@@ -1,0 +1,6 @@
+# number of cooks
+M 10
+
+# number of students (veg) (non-veg) (jain)
+S 100 150 50
+
