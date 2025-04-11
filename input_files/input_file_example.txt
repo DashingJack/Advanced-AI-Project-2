@@ -5,45 +5,52 @@ M 10
 S 100 150 50
 
 # food items and their allocation
-# D dish_id dish_name for-veg for-non-veg for-jain
+# dish_id dish_name for-veg for-non-veg for-jain node-count
+# dish process
+# dish-process-id process-id
+# dishes graph
+# count start-node end-node
 C 7
-D 1 d1 T T T
-D 2 d2 T T F
-D 3 d3 T T T
-D 4 d4 T F F
-D 5 d5 F T F
-D 6 d6 F F T
-D 7 d7 F F T
+1 d1 1 1 1 20
+1 1
+2 2
+3 2
+...
+10 1 2 2 3 1 3 2 5 5 7
+2 d2 1 1 0
+1 1
+2 2
+3 2
+...
+10 1 2 2 3 1 3 2 5 5 7
+3 d3 1 1 1
+10 1 2 2 3 1 3 2 5 5 7
+4 d4 1 0 0
+10 1 2 2 3 1 3 2 5 5 7
+5 d5 0 1 0
+10 1 2 2 3 1 3 2 5 5 7
+6 d6 0 0 1
+10 1 2 2 3 1 3 2 5 5 7
+7 d7 0 0 1
+10 1 2 2 3 1 3 2 5 5 7
 
 # resources and their quantities
-# R resource-id resource-name resource-count
+# resource-id resource-name resource-count
 C 9
-R 1 r1 10
-R 2 r2 12
-R 3 r3 20
-R 4 r4 6
-R 5 r5 5
-R 6 r6 15
-R 7 r7 18
-R 8 r8 3
-R 9 r9 1
+1 r1 10
+2 r2 12
+3 r3 20
+4 r4 6
+5 r5 5
+6 r6 15
+7 r7 18
+8 r8 3
+9 r9 1
 
 # process details
-# P Process-id Process-name Time Batch-Size Resources Required
+# Process-id Process-name Time Batch-Size num-resource Resources Required
 C 10
-P 1 p1 5 100 1 end
-P 2 p2 5 25 5 6 end
-P 3 p3 10 25 3 4 end
-...
-
-# dish process
-# N dish-id dish-process-id process-id
-N 3 1 1
-N 3 2 2
-N 3 3 2
-...
-
-# dishes graph
-# G dish-id count start-node end-node
-G 3 1 2 2 3 1 3 2 5 5 7
+1 p1 5 100 1 1
+2 p2 5 25 2 5 6
+3 p3 10 25 2 3 4
 ...
