@@ -10,14 +10,8 @@
 class DishNode
 {
 public:
-    std::vector<std::reference_wrapper<DishNode>> parent_nodes_;
     int node_id, node_process_id_, instances_required_, instances_done;
     bool is_done;
-    std::vector<std::reference_wrapper<DishNode>> child_nodes_;
-    bool can_start();
-    void add_parent(DishNode &node);
-    void add_child(DishNode &node);
-    void instance_complete();
 };
 
 class Dish
@@ -28,6 +22,10 @@ public:
     std::unordered_map<int, DishNode> graph_;
     std::vector<std::reference_wrapper<DishNode>> starting_nodes_;
     std::vector<std::reference_wrapper<DishNode>> ending_nodes_;
+    std::vector<std::pair<int,int>> connections_;
+    bool served_veg = false;
+    bool served_nonveg = false;
+    bool served_jain = false;
 };
 
 class Resource

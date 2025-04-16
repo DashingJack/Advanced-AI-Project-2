@@ -15,7 +15,7 @@ add_definitions(-DUNICODE -D_UNICODE)
 
 include_directories(include)
 
-file(GLOB SOURCES "src/*.cpp")
+file(GLOB_RECURSE SOURCES "src/*.cpp")
 
 include(FetchContent)
 

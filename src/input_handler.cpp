@@ -16,28 +16,6 @@ int Process::getTimeForBatch(int batch_size)
     return time_ * ceil(batch_size / batch_size_);
 }
 
-bool DishNode::can_start()
-{
-    for (auto &parent : parent_nodes_)
-    {
-        if (!parent.get().is_done)
-        {
-            return false;
-        }
-    }
-    return true;
-}
-
-void DishNode::add_parent(DishNode &node)
-{
-    parent_nodes_.push_back(node);
-}
-
-void DishNode::add_child(DishNode &node)
-{
-    child_nodes_.push_back(node);
-}
-
 namespace inputs
 {
     int cooks, studnets_veg, students_non_veg, studnets_jain;
@@ -110,8 +88,6 @@ namespace inputs
             {
                 int start, end;
                 ss >> start >> end;
-                temp_dish.graph_[start].child_nodes_.push_back(temp_dish.graph_[end]);
-                temp_dish.graph_[end].parent_nodes_.push_back(temp_dish.graph_[start]);
             }
         }
     }
